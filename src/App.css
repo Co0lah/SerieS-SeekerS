@@ -1,5 +1,18 @@
+body {
+  background-color: #282c34;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1 a {
+  color: #eeeeee;
+}
+
 .App {
   text-align: center;
+  color: #f0f0f0;
 }
 
 .App-logo {
@@ -13,12 +26,32 @@
   }
 }
 
+li {
+  list-style: none;
+  margin: 15px;
+}
+
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 50px;
+  margin-left: 250px;
+  margin-right: 250px;
+}
+
+input {
+  height: 4vh;
+  border-radius: 5px;
+}
+
+image:hover {
+  background-color: #27292e49;
+}
+
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 10vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
@@ -32,7 +65,159 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+.slicer {
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.664);
+  margin: 5px;
+  margin-top: 50px;
+  margin-left: 300px;
+  margin-right: 300px;
+}
+
+.image-container {
+  max-width: 250px;
+  max-height: 350px;
+}
+
+.next-page {
+  margin-top: 50px;
+}
+
+.next-page a {
+  border-radius: 10px;
+  background-color: #eeeeee;
+  padding: 5px 10px;
+  font-weight: 700;
+  color: #000;
+}
+
+footer {
+  background-color: #101111;
+}
+
+footer ul {
+  margin-left: 0;
+  margin-right: 0;
+  display: grid;
+}
+
+footer a {
+  background-color: #000000;
+  padding: 5px 15px;
+  border-radius: 10px;
+  color: #ffffff;
+}
+
+
+.links-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 70px;
+}
+
+/* ---------------------------------------------- OVERLAY TEST !!!!! --------------------------------*/
+/* Conteneur principal */
+.overlay-image {
+  position: relative;
+  width: 100%;
+}
+
+/* Image originale */
+.overlay-image .image {
+  border-radius: 5px;
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Texte original */
+.overlay-image .text {
+  color: #ffffffda;
+  font-size: 14px;
+  line-height: 1.5em;
+  text-shadow: 2px 2px 2px #000;
+  text-align: justify;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+}
+
+.overlay-image .premiered {
+  position: absolute;
+  color: #ffffffce;
+  bottom: 0;
+  left: 10px;
+}
+
+.overlay-image .premiered p {
+  background-color: #101111a4;
+  border: 1px solid #ffffff;
+  padding: 3px 10px;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.overlay-image .hover {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+}
+
+/* Apparition overlay sur passage souris */
+.overlay-image:hover .hover {
+  background-color: #000000ad;
+  opacity: 1;
+}
+
+/* --------------------------------------- Loading Spinna TO CLEAN !!!! -------------------------- */
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 10px solid #f3f3f3;
+  border-top: 10px solid #383636;
+  border-radius: 50%;
+  animation: spinner 1.5s linear infinite;
+  position: absolute;
+  top: 50%;
+  left: 48%;
+  transform: translate(-50%, -50%);
+}
+
+.spinner-container h2 {
+  color: #eeeeee;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.LazyLoad {
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+
+.is-visible {
+  opacity: 1;
 }

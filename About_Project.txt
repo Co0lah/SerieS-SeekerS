@@ -1,0 +1,46 @@
+              ******************************* Project SerieS SeekerS Documentation *********************************
+
+
+
+
+
+# INTRO
+    J'ai choisi la techno ReactJs apresè avoir hésité avec Vue.js pour créer la solution front-end me permettant de rechercher une série et lsiter les résultats.
+ReactJs, parmi les connaissances front que j'ai me parait la bonne solution (testé avec symfony(back donc peu productif/logique mais .. curiosité ...).
+J'apprécie beaucoup la gestion des variables avec les state et les hooks (useEffect ...). Ce projet m'a permis de revisiter React et approfondir mes skills.
+
+## CODE
+    * Etape 1 : 
+        [
+            - Création de la base du projet (npm install)
+            - Création, dans le composant App, de la function async getSeriesList avec en param la "page query filter" de l'API endpoint 
+            (La v1 implémentait .then() pour une meilleure pratique je l'ai remove pour du promise avec async)
+            - Implémentation d'un try catch pour gérer les erreurs, statut de l'API call. 
+            - Création de variables (error qui va recup une valeur que va setter setError, etc...) et Implémentation de useEffect et useState pour gérer leurs états
+            - Création d'une condition stipulant que si response.ok est false, lancer le message d'erreur personnalisé avec le status.
+
+            - J'assigne la response desormais en json à la variable result pour ensuite lancer une batterie de setters.
+            - Je commence à travailler sur le rendu histoire d'avoir un aperçu autre que les logs infos.
+            - Je map sur le items setter auparavant et display les valeurs. J'en profite pour creer et parametrer l'input qui va servir à
+            recolter la série voulu.
+
+            - Création d'une function getSearchResults(), ici on suit la trame de getSeriesList() à la difference du endpoint implémenter d'un variables search.
+            qui sera setter au fur et à mesure en fonction du result de l'input grâce à la function onchange et setSearch()
+            - Je peux desormais chercher et lister les series.
+        ]
+
+            "Console.log x10000..."
+
+### ISSUES RENCONTREES :
+        [
+            - Certaines séries ne contiennent pas tous les éléments que je pouvais demander comme
+            l'image (switch entre medium, original et img perso), le rate .. Pour prévenir cela j'ai use l'optional chaining qui me permet d'echapper un 
+            error message set le contenu sur undefined.
+            - Message d'erreur stipulant que mes items ne pouvaient comporter que des clés unique, imcompréhension totale.
+            En regardant sur stack overflow j'ai compris que la possibilité de faire un Math.random sur les id avec la function
+            RandomKey.
+            - Usage d'une function getSanitizedSearchResults afin de modifier la structure ma list et faire en sorte d'utiliser les memes elements que pour getSeriesList 
+            dans le rendu Html. Auparavant j'avais une erreur me stipulant que mes items etaient "undefined"
+            - Le rendu pas top, saut des elements lors du onchange(pas encore trouver la soluce)
+            - Tentative de routing et de refacto (axe de progression).
+        ]
