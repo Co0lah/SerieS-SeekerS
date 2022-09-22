@@ -11,19 +11,10 @@ h1 a {
 }
 
 .App {
+  margin: 0;
+  padding: 0;
   text-align: center;
   color: #f0f0f0;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
 }
 
 li {
@@ -35,8 +26,7 @@ ul {
   display: flex;
   flex-wrap: wrap;
   margin-top: 50px;
-  margin-left: 250px;
-  margin-right: 250px;
+  justify-content: center;
 }
 
 input {
@@ -50,7 +40,7 @@ image:hover {
 
 .App-header {
   background-color: #282c34;
-  min-height: 10vh;
+  height: 10vh;
   display: flex;
   justify-content: center;
   font-size: calc(10px + 2vmin);
@@ -61,31 +51,12 @@ image:hover {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.slicer {
-  text-align: center;
-  border: 1px solid rgba(255, 255, 255, 0.664);
-  margin: 5px;
-  margin-top: 50px;
-  margin-left: 300px;
-  margin-right: 300px;
-}
-
 .image-container {
   max-width: 250px;
   max-height: 350px;
 }
 
-.next-page {
+/* .next-page {
   margin-top: 50px;
 }
 
@@ -95,10 +66,11 @@ image:hover {
   padding: 5px 10px;
   font-weight: 700;
   color: #000;
-}
+} */
 
-footer {
+/* footer {
   background-color: #101111;
+  position: fixed;
 }
 
 footer ul {
@@ -107,19 +79,20 @@ footer ul {
   display: grid;
 }
 
-footer a {
-  background-color: #000000;
-  padding: 5px 15px;
-  border-radius: 10px;
-  color: #ffffff;
-}
-
-
 .links-container {
   display: flex;
   justify-content: space-between;
   margin: 70px;
 }
+
+footer a {
+  background-color: #000000;
+  padding: 5px 15px;
+  border-radius: 10px;
+  color: #ffffff;
+} */
+
+
 
 /* ---------------------------------------------- OVERLAY TEST !!!!! --------------------------------*/
 /* Conteneur principal */
@@ -133,7 +106,7 @@ footer a {
   border-radius: 5px;
   display: block;
   width: 100%;
-  height: auto;
+  height: 300px;
 }
 
 /* Texte original */
@@ -215,9 +188,10 @@ footer a {
 
 .LazyLoad {
   opacity: 0;
-  transition: all 0.5s ease-in-out;
+  transition: all 1s ease-in-out;
 }
 
 .is-visible {
   opacity: 1;
 }
+
