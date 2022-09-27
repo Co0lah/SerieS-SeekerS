@@ -1,60 +1,309 @@
+/* !Hover en mode mobile..... !!!!!!!!!! */
+
 body {
   background-color: #282c34;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 1.2rem;
 }
 
 a {
   text-decoration: none;
-}
-
-h1 a {
   color: #eeeeee;
 }
 
-.App {
-  margin: 0;
-  padding: 0;
+li {
+   list-style: none;
+}
+
+.wrapper {
+  min-width: 320px;
   text-align: center;
   color: #f0f0f0;
 }
 
-li {
-  list-style: none;
-  margin: 15px;
+.wrapper-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 20;
 }
 
-ul {
+/* ------------------------------------ Header section ---------------------------------- */
+header {
   display: flex;
-  flex-wrap: wrap;
-  margin-top: 50px;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #41444b;
+  margin-bottom: 25px;
+  position: relative;
+  z-index: 100;
+  padding: 15px;
+  border-radius: 0 0 10px 10px;
+  
+}
+@media screen and (max-width:767px) {
+    header {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+}
+
+.header-links{
+  display: contents;
 }
 
 input {
   height: 4vh;
-  border-radius: 5px;
+  border-radius: 20px;
+  padding: 5px;
 }
 
+/* --------------------------------------------- Main data block ----------------------- */
+.main-series-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+}
+
+.main-series {
+    flex: 5;
+  background-color:  #41444b;
+  border-radius: 10px;
+  margin-right: 40px;
+}
+@media screen and (max-width: 767px) {
+  .main-series {
+    justify-content: center;
+    margin: 5px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+    ul {
+      margin-top: 50px;
+      display: block;
+    }
+}
+
+.main-series ul {
+  /* max-width: 60vw; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+@media screen and (max-width: 767px) {
+  .main-series ul{
+    justify-content: center;
+    margin: 5px;
+  }
+}
+
+li {
+  margin-right: 10px;
+  margin-bottom: 30px;
+}
+@media screen and (max-width: 375px) {
+    li {
+      list-style: none;
+      margin: 0;
+      margin-bottom: 50px;
+      }
+    } 
+
+.infos {
+  line-height: 0.2;
+  text-align: start;
+
+}
+
+.infos span {
+  color: #00b7ff;
+  font-size: 0.8rem;
+}
+
+/* ------------------------------------------------------------- */
+.aside-series {
+  flex: 1;
+  background-color: #41444b;
+  border-radius: 10px;
+  margin-left: 20px;
+  font-size: 0.8rem;
+}
+@media screen and (max-width: 767px) {
+  .aside-series {
+    display: none;
+  }
+}
+.aside-series ul {
+padding: 0;
+}
+
+.aside-series li{
+margin: auto;
+padding: 0 15px;
+margin-bottom: 30px;
+width: 150px;
+}
+
+/* ------------------------------------ Items cards Overlay, Hover, Img -------------------------------- */
 image:hover {
   background-color: #27292e49;
 }
 
-.App-header {
-  background-color: #282c34;
-  height: 10vh;
-  display: flex;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.main-series .image-container {
+  width: 220px;
+  height: 300px;
+}
+@media screen and (max-width: 425px){
+  .main-series .image-container {
+    width: 260px;
+    height: 350px;
+  }  
 }
 
-.App-link {
-  color: #61dafb;
+.aside-series .image-container {
+  width: 150px;
+  height: 160px;
 }
 
-.image-container {
-  max-width: 250px;
-  max-height: 350px;
+
+/* ---------------------------------------------- OVERLAY TEST !!!!! --------------------------------*/
+/* Conteneur principal */
+.overlay-image {
+  position: relative;
+  margin-bottom: -5px;
 }
+
+/* Image originale */
+.overlay-image .image {
+  border-radius: 5px;
+  /* display: block; */
+  width: 100%;
+  height: 100%;
+}
+
+
+/* Texte original */
+.overlay-image .text {
+  color: #ffffffc0;
+  font-size: 14px;
+  line-height: 1.5em;
+  text-shadow: 2px 2px 2px #000;
+  text-align: justify;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+}
+
+.overlay-image .premiered {
+  position: absolute;
+  color: #ffffffc9;
+  bottom: -2%;
+  left: 2%;
+}
+
+.svg svg{
+  width: 80px;
+  height: 200px;
+  color: #eeeeeec4;
+
+}
+
+.overlay-image .premiered p {
+  background-color: #10111154;
+  border: 1px solid #c2c2c256;
+  padding: 2px 5px;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.overlay-image .hover {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease-in-out;
+}
+
+/* Apparition overlay sur passage souris */
+.overlay-image:hover .hover {
+  background-color: #000000ad;
+  opacity: 1;
+} 
+
+/* --------------------------------------- Loading Spinna TO CLEAN !!!! -------------------------- */
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner-container {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 2;
+}
+
+.loading-spinner {
+  width: 80px;
+  height: 80px;
+  border: 10px solid #f3f3f3;
+  border-top: 10px solid #383636;
+  border-radius: 50%;
+  animation: spinner 1.5s linear infinite;
+}
+
+.spinner-container h2 {
+  color: #eeeeee;
+}
+
+.LazyLoad {
+  opacity: 0;
+  transition: all 0.4s ease-in-out;
+}
+
+.is-visible {
+  opacity: 1;
+}
+
+/* ----------------------------------------------- Page Up Btn -------------------------------------------*/
+
+#scrollTop{
+  position: fixed;
+  bottom: 30px;
+  right: 2%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  /* transition: 0.2s linear; */
+  /* opacity: 0; */
+}
+
+.isActive {
+visibility: visible;
+/* opacity: 0.7; */
+}
+
+
 
 /* .next-page {
   margin-top: 50px;
@@ -91,107 +340,3 @@ footer a {
   border-radius: 10px;
   color: #ffffff;
 } */
-
-
-
-/* ---------------------------------------------- OVERLAY TEST !!!!! --------------------------------*/
-/* Conteneur principal */
-.overlay-image {
-  position: relative;
-  width: 100%;
-}
-
-/* Image originale */
-.overlay-image .image {
-  border-radius: 5px;
-  display: block;
-  width: 100%;
-  height: 300px;
-}
-
-/* Texte original */
-.overlay-image .text {
-  color: #ffffffda;
-  font-size: 14px;
-  line-height: 1.5em;
-  text-shadow: 2px 2px 2px #000;
-  text-align: justify;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 80%;
-}
-
-.overlay-image .premiered {
-  position: absolute;
-  color: #ffffffce;
-  bottom: 0;
-  left: 10px;
-}
-
-.overlay-image .premiered p {
-  background-color: #101111a4;
-  border: 1px solid #ffffff;
-  padding: 3px 10px;
-  border-radius: 5px;
-  font-size: 0.8rem;
-  font-weight: 600;
-}
-
-.overlay-image .hover {
-  position: absolute;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  opacity: 0;
-  transition: .5s ease;
-}
-
-/* Apparition overlay sur passage souris */
-.overlay-image:hover .hover {
-  background-color: #000000ad;
-  opacity: 1;
-}
-
-/* --------------------------------------- Loading Spinna TO CLEAN !!!! -------------------------- */
-@keyframes spinner {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-.loading-spinner {
-  width: 50px;
-  height: 50px;
-  border: 10px solid #f3f3f3;
-  border-top: 10px solid #383636;
-  border-radius: 50%;
-  animation: spinner 1.5s linear infinite;
-  position: absolute;
-  top: 50%;
-  left: 48%;
-  transform: translate(-50%, -50%);
-}
-
-.spinner-container h2 {
-  color: #eeeeee;
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.LazyLoad {
-  opacity: 0;
-  transition: all 1s ease-in-out;
-}
-
-.is-visible {
-  opacity: 1;
-}
-
