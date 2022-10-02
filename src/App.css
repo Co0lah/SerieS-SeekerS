@@ -12,6 +12,7 @@ body {
 
 h3 {
   font-size: 1.2rem;
+  margin-bottom: 50px;
 }
 
 a {
@@ -33,7 +34,6 @@ li {
   max-width: 1200px;
   margin: 0 auto;
   position: relative;
-  z-index: 20;
 }
 
 /* ------------------------------------ Header section ---------------------------------- */
@@ -63,7 +63,12 @@ header {
 input {
   height: 4vh;
   border-radius: 20px;
-  padding: 5px;
+  padding: 20px;
+}
+@media screen and (max-width:767px) {
+  input {
+      padding: 10px;
+    }
 }
 
 /* --------------------------------------------- Main data block ----------------------- */
@@ -71,13 +76,17 @@ input {
   display: flex;
   justify-content: space-between;
   margin-top: 50px;
+  max-height: 80vh;
+  position: relative;
 }
 
 .main-series {
-    flex: 5;
+  flex: 5;
   background-color:  #41444b;
   border-radius: 10px;
-  margin-right: 40px;
+  margin-right: 30px;
+  overflow-Y: scroll;
+  position: relative;
 }
 @media screen and (max-width: 767px) {
   .main-series {
@@ -87,18 +96,18 @@ input {
 }
 
 @media screen and (max-width: 425px) {
-    ul {
-      margin-top: 50px;
-      display: block;
-    }
+  ul {
+    margin-top: 50px;
+    display: block;
+  }
 }
 
 .main-series ul {
-  /* max-width: 60vw; */
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 0 10px;
+  position: relative;
 }
 @media screen and (max-width: 767px) {
   .main-series ul{
@@ -119,13 +128,14 @@ li {
       }
     } 
 
-.infos {
+.sub-infos {
   line-height: 0.2;
   text-align: start;
-
+  display: flex;
+  justify-content: space-around;
 }
 
-.infos span {
+.sub-infos span {
   color: #00b7ff;
   font-size: 0.8rem;
 }
@@ -137,6 +147,9 @@ li {
   border-radius: 10px;
   margin-left: 20px;
   font-size: 0.8rem;
+  overflow-y: auto; 
+  overflow-x: hidden;
+  scrollbar-base-color: #00b7ff;
 }
 @media screen and (max-width: 767px) {
   .aside-series {
@@ -161,18 +174,15 @@ image:hover {
 
 .main-series .image-container {
   width: 220px;
-  height: 300px;
 }
 @media screen and (max-width: 425px){
   .main-series .image-container {
     width: 260px;
-    height: 350px;
   }  
 }
 
 .aside-series .image-container {
   width: 150px;
-  height: 160px;
 }
 
 
@@ -181,12 +191,13 @@ image:hover {
 .overlay-image {
   position: relative;
   margin-bottom: -5px;
+  transition: 1s;
+  border-radius: 10px;
 }
 
 /* Image originale */
 .overlay-image .image {
-  border-radius: 5px;
-  /* display: block; */
+  border-radius: 10px;
   width: 100%;
   height: 100%;
 }
@@ -206,11 +217,11 @@ image:hover {
   width: 80%;
 }
 
-.overlay-image .premiered {
+.overlay-image .series-infos {
   position: absolute;
   color: #ffffffc9;
-  bottom: -2%;
-  left: 2%;
+  bottom: 0;
+  width: 100%;
 }
 
 .svg svg{
@@ -220,10 +231,10 @@ image:hover {
 
 }
 
-.overlay-image .premiered p {
+.overlay-image .sub-infos p {
   background-color: #10111154;
   border: 1px solid #c2c2c256;
-  padding: 2px 5px;
+  padding: 8px 5px;
   border-radius: 5px;
   font-size: 0.8rem;
   font-weight: 600;
@@ -235,12 +246,17 @@ image:hover {
   height: 100%;
   width: 100%;
   opacity: 0;
-  transition: .5s ease-in-out;
 }
 
 /* Apparition overlay sur passage souris */
 .overlay-image:hover .hover {
   background-color: #000000ad;
+  border-radius: 10px;
+  opacity: 1;
+} 
+.overlay-image:hover  {
+  background-color: #000000ad;
+  transform: scale(1.03);
   opacity: 1;
 } 
 
@@ -263,23 +279,33 @@ image:hover {
   line-height: 2;
 }
 
+.spinner-container-search {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 2;
+  z-index: 10;
+}
+
 .loading-spinner {
   width: 80px;
   height: 80px;
   border: 10px solid #f3f3f3;
   border-top: 10px solid #383636;
   border-radius: 50%;
-  animation: spinner 1.5s linear infinite;
+  animation: spinner 1s linear infinite;
 }
 
-.spinner-container h2 {
-  color: #eeeeee;
-}
 
+/* -------------------------------------------------------- Series cards loading --------------------------- */
 .LazyLoad {
   opacity: 0;
-  transition: all 0.4s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  height: 800;
+  offset: 100;
 }
+
 
 .is-visible {
   opacity: 1;
@@ -287,21 +313,21 @@ image:hover {
 
 /* ----------------------------------------------- Page Up Btn -------------------------------------------*/
 
-#scrollTop{
+/* #scrollTop{
   position: fixed;
   bottom: 30px;
   right: 2%;
   width: 50px;
   height: 50px;
-  cursor: pointer;
+  cursor: pointer; */
   /* transition: 0.2s linear; */
   /* opacity: 0; */
-}
+/* } */
 
-.isActive {
-visibility: visible;
+/* .isActive { */
+/* visibility: visible; */
 /* opacity: 0.7; */
-}
+/* } */
 
 
 
