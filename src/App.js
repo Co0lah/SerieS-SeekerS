@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import LazyLoad from "react-lazy-load";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -97,48 +97,51 @@ const App = () => {
             )}
             <h3>Series streaming</h3>
             <ul>
-              {items.map(({ name, image, summary, premiered, rating }) => (
-                <li key={getRandomKey()}>
-                  <div className="overlay-image">
-                    <a href="#">
-                      <div className="image-container">
-                        <LazyLoad>
-                          <img
-                            className="image"
-                            src={
-                              image?.medium ||
-                              image?.original ||
-                              "https://images.pexels.com/photos/2335046/pexels-photo-2335046.jpeg"
-                            }
-                            alt="Alt text"
-                          />
-                        </LazyLoad>
-                      </div>
-                      <div className="hover">
-                        <div className="text">
-                          <p style={{ color: "#00b7ff" }}>
-                            {name?.substring(0, 20).toUpperCase()}
-                          </p>
-                          <p
-                            dangerouslySetInnerHTML={{
-                              __html: summary?.substring(0, 150),
-                            }}
-                          />
+              {items.map(
+                ({ name, image, summary, premiered, rating, officialSite }) => (
+                  <li key={getRandomKey()}>
+                    <div className="overlay-image">
+                      <a href={officialSite} target="_blank" rel="noreferrer">
+                        <div className="image-container">
+                          <LazyLoad>
+                            <img
+                              className="image"
+                              src={
+                                image?.medium ||
+                                image?.original ||
+                                "https://images.pexels.com/photos/2335046/pexels-photo-2335046.jpeg"
+                              }
+                              alt="Alt text"
+                            />
+                          </LazyLoad>
                         </div>
-                        <div className="series-infos">
-                          <div className="sub-infos">
-                            <p>{premiered?.substring(0, 4)}</p>
-                            <p>
-                              <span>rating </span>
-                              <b>{rating?.average || "N/A"}</b>
+                        <div className="hover">
+                          <h3>Click To Watch</h3>
+                          <div className="text">
+                            <p style={{ color: "#00b7ff" }}>
+                              {name?.substring(0, 20).toUpperCase()}
                             </p>
+                            <p
+                              dangerouslySetInnerHTML={{
+                                __html: summary?.substring(0, 150),
+                              }}
+                            />
+                          </div>
+                          <div className="series-infos">
+                            <div className="sub-infos">
+                              <p>{premiered?.substring(0, 4)}</p>
+                              <p>
+                                <span>rating </span>
+                                <b>{rating?.average || "N/A"}</b>
+                              </p>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    </a>
-                  </div>
-                </li>
-              ))}
+                      </a>
+                    </div>
+                  </li>
+                )
+              )}
             </ul>
           </div>
           <div className="aside-series">
